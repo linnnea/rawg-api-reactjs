@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loadGames } from '../actions/gamesAction';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import GameDetail from '../components/GameDetail';
 
 import Game from '../components/Game';
 
@@ -17,6 +18,7 @@ const Home = () => {
 
   return (
     <GameList>
+      <GameDetail />
       <h2>Upcoming Games</h2>
       <Games>
         {upcoming.map((game) => (
@@ -26,6 +28,7 @@ const Home = () => {
             id={game.id}
             key={game.id}
             image={game.background_image}
+            game={game}
           />
         ))}
       </Games>
@@ -38,6 +41,7 @@ const Home = () => {
             id={game.id}
             key={game.id}
             image={game.background_image}
+            game={game}
           />
         ))}
       </Games>
@@ -50,6 +54,7 @@ const Home = () => {
             id={game.id}
             key={game.id}
             image={game.background_image}
+            game={game}
           />
         ))}
       </Games>

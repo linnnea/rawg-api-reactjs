@@ -11,11 +11,11 @@ const GlobalStyles = createGlobalStyle`
             width: 0.5rem;
         }
         &::-webkit-scrollbar-thumb{
-            background-color: darkgrey;
+            background-color: #a9a9a9;
         }
         &::-webkit-scrollbar-track {
-    background: white;
-  }
+            background: white;
+        }
     }
     body{
         font-family: 'Montserrat', sans-serif;
