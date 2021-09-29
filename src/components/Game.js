@@ -2,14 +2,22 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useDispatch } from 'react-redux';
 import { loadDetail } from '../actions/detailAction';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const Game = ({ name, released, image, id }) => {
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const loadDetailHandler = () => {
     dispatch(loadDetail(id));
   };
+
+  // Fix scroll issue when game is open
+  if (history.location.pathname === '/') {
+    document.body.style.overflow = 'auto';
+  } else {
+    document.body.style.overflow = 'hidden';
+  }
 
   return (
     <StyledGame onClick={loadDetailHandler}>
