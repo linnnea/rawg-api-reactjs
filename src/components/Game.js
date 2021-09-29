@@ -12,7 +12,7 @@ const Game = ({ name, released, image, id }) => {
     dispatch(loadDetail(id));
   };
 
-  // Fix scroll issue when game is open
+  // Fix scroll issue when game detail is open
   if (history.location.pathname === '/') {
     document.body.style.overflow = 'auto';
   } else {
