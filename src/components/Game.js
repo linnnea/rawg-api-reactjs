@@ -6,6 +6,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { resizeImage } from '../utils';
 
 const Game = ({ name, released, image, id }) => {
+  const stringPathId = id.toString();
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -21,11 +22,16 @@ const Game = ({ name, released, image, id }) => {
   }
 
   return (
-    <StyledGame onClick={loadDetailHandler}>
+    <StyledGame layoutId={stringPathId} onClick={loadDetailHandler}>
       <Link to={`/game/${id}`}>
-        <h3>{name}</h3>
+        <motion.h3 layoutId={`title ${stringPathId}`}>{name}</motion.h3>
         <p>{released}</p>
-        <img loading="lazy" src={resizeImage(image, 640)} alt={name} />
+        <motion.img
+          layoutId={`image ${stringPathId}`}
+          loading="lazy"
+          src={resizeImage(image, 640)}
+          alt={name}
+        />
       </Link>
     </StyledGame>
   );
